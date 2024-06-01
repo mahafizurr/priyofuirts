@@ -52,7 +52,7 @@ const Contact = () => {
           <div>
             <span className="font-semibold block">WhatsApp:</span>
             <a
-              href="https://wa.me/8801918167161"
+              href="https://wa.me/message/F2NWRN5I52AUP1"
               className="text-blue-500 hover:underline"
             >
               01303546501
