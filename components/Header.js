@@ -9,7 +9,7 @@ const Header = () => {
       <div className="  flex justify-between items-center p-2">
         <div className="  items-center">
           <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
-          <a href="tel:+1234567890" className="hover:underline">
+          <a href="tel:+8801303546501" className="hover:underline">
             +8801303546501
           </a>
         </div>
