@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="container mx-auto px-4 py-4 md:py-8">
+    <div className="w-full px-4 py-4 md:py-8">
       <img
         src="/images/heading-banner.jpg"
         alt="Banner"

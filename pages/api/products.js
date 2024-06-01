@@ -2,31 +2,31 @@
 const products = [
   {
     id: 1,
-    name: "Himsagor",
+    name: "হিমসাগর আম  / Himsagor",
     description: "Sweet and juicy mangoes.",
     price: "1440 - 2640",
-    image: "../images/himsagor.jpg",
+    image: "/images/himsagor.jpg",
   },
   {
     id: 2,
-    name: "Khisshapat",
+    name: "খিরসাপাত আম / Kirshapat",
     description: "Delicious khisshapat mangoes.",
     price: "1440 - 2640",
-    image: "../images/khisshapat.jpg",
+    image: "/images/khisshapat.jpg",
   },
   {
     id: 3,
-    name: "Gopalvog Mango",
+    name: "গোপালভোগ আম / Gopalvog",
     description: "Tasty gopalvog mangoes.",
-    price: "1440 - 2640",
-    image: "../images/gopalvog.jpg",
+    price: "Not Available",
+    image: "/images/gopalvog.jpg",
   },
   {
     id: 4,
-    name: "Aachar",
+    name: "আচার",
     description: "Tasty Aachar.",
     price: "1440 - 2640",
-    image: "../images/Aachar.jpg",
+    image: "/images/Aachar.jpg",
   },
 ];
 

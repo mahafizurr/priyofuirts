@@ -1,3 +1,4 @@
+// components/Header.js
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneAlt, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -9,17 +10,19 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useCart } from "../contexts/CartContext";
 
 const Header = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cart } = useCart();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="w-full px-4">
       <div className="flex flex-col md:flex-row justify-between items-center p-2">
         <div className="flex items-center mb-2 md:mb-0">
           <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
@@ -63,7 +66,7 @@ const Header = () => {
         </div>
       </div>
 
-      <header className="bg-green-950 text-white p-4 sticky top-0 z-75">
+      <header className="bg-green-950 text-white p-4 sticky top-0 z-50">
         <nav className="flex justify-between items-center flex-wrap">
           <div className="text-2xl font-bold">
             <Link href="/">Priyo Fruits</Link>
@@ -121,14 +124,18 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="mt-2 md:mt-0">
-            <Link href="/cart" className="hover:underline">
-              <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
+          <div className="mt-2 md:mt-0 flex items-center space-x-4">
+            <Link href="/checkout" className="hover:underline">
+              <div className="relative">
+                <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-sm">
+                  {cart.length}
+                </span>
+              </div>
             </Link>
           </div>
         </nav>
       </header>
-      {/* Banner */}
       {router.pathname === "/" && (
         <div className="container mx-auto mt-4">
           <img

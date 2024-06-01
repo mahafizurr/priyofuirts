@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="container bg-green-950 text-white mx-auto px-4 py-8">
+    <div className="w-full bg-green-950 text-white px-4 py-8">
       <div className="flex flex-col lg:flex-row justify-between items-start space-y-8 lg:space-y-0">
         <div className="w-full lg:w-1/3">
           <iframe
