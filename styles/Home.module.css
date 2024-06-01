@@ -1,0 +1,10 @@
+/* styles/Home.module.css */
+.main {
+  padding: 2rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
