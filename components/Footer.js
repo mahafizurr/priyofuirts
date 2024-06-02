@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-full px-4">
+    <div className=" bg-green-950 text-white w-full p-8">
       <div className="flex flex-col lg:flex-row lg:justify-around lg:items-start md:flex-col md:items-center sm:flex-col sm:items-center space-y-4 lg:space-y-0">
         <div className="w-full lg:w-1/3">
           <iframe
@@ -15,7 +15,7 @@ const Footer = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="w-full lg:w-1/3">
+        <div className="w-full lg:w-1/3 pl-4">
           <ul className="space-y-2">
             <li className="my-2 md:my-0">
               <Link href="/" className="hover:underline block">
@@ -38,10 +38,11 @@ const Footer = () => {
         <div className="w-full lg:w-1/3">
           <h3 className="text-lg font-semibold">Address</h3>
           <p className="mt-2">
-            Sabek Lavanga, Ranihati, Shiganj,Chapainawabganj-6300. <br />
-            Phone: 01918-167161 <br />
-            WhatsApp: 01918-167161 <br />
-            chapaiambient@gmail.com
+            Sabek Lavanga, Ranihati, Shiganj, Chapainawabganj-6300.
+            <br />
+            Phone: 01303546501 <br />
+            WhatsApp: 01303546501 <br />
+            priyofruits@gmail.com
           </p>
         </div>
       </div>
