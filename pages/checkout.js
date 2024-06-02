@@ -30,7 +30,7 @@ const Checkout = () => {
     }
   };
 
-  const handleCheckout = async () => {
+  /* const handleCheckout = async () => {
     const response = await fetch("/api/initiate-payment", {
       method: "POST",
       headers: {
@@ -49,7 +49,7 @@ const Checkout = () => {
     } else {
       alert("Failed to initiate payment");
     }
-  };
+  }; */
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -110,7 +110,7 @@ const Checkout = () => {
             Total Amount: {totalAmount}৳
           </h2>
           <button
-            onClick={handleCheckout}
+            /* onClick={handleCheckout} */
             className="bg-green-500 text-white px-4 py-2 rounded ml-4"
           >
             Proceed to Checkout
