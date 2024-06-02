@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import BillingForm from "@/components/BillingForm";
 
 const Checkout = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
@@ -30,10 +31,6 @@ const Checkout = () => {
     }
   };
 
-  const handleCheckout = async () => {
-    console.log("chck out");
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">Checkout</h1>
@@ -44,7 +41,7 @@ const Checkout = () => {
           {cart.map((product) => (
             <div
               key={product.id}
-              className="border p-4 rounded-lg flex items-center justify-between"
+              className="border p-4 rounded-lg flex flex-col md:flex-row items-center justify-between"
             >
               <Image
                 src={product.image}
@@ -53,7 +50,7 @@ const Checkout = () => {
                 height={100}
                 className="w-24 h-24 rounded"
               />
-              <div className="flex-1 ml-4">
+              <div className="flex-1 mt-4 md:mt-0 md:ml-4">
                 <h2 className="text-xl font-semibold">{product.name}</h2>
                 <p className="text-gray-700">{product.description}</p>
                 <p className="text-gray-900 font-bold">{product.price}৳</p>
@@ -79,7 +76,7 @@ const Checkout = () => {
               </div>
               <button
                 onClick={() => removeFromCart(product.id)}
-                className="bg-red-500 text-white px-4 py-2 rounded ml-4"
+                className="bg-red-500 text-white px-4 py-2 rounded mt-4 md:mt-0 md:ml-4"
               >
                 Remove
               </button>
@@ -92,19 +89,28 @@ const Checkout = () => {
           <h2 className="text-xl font-bold mb-4">
             Total Amount: {totalAmount}৳
           </h2>
-          <button
-            onClick={handleCheckout}
-            className="bg-green-500 text-white px-4 py-2 rounded ml-4"
-          >
-            Proceed to Checkout
-          </button>
+          <div className="mt-4">
+            <h3 className="text-lg font-semibold">Payment Instructions:</h3>
+            <p>
+              আম কাঁচা পন্য হওয়ায় বুকিং এর জন্য কিছু এডভান্স করে বাকি টাকা ক্যাশ
+              অন ডেলিভারিতে দিতে পারবেন।
+            </p>
+            <p>জেলা শহরে হোম ডেলিভারি করা হয়।</p>
+            <p>
+              হোম ডেলিভারি চার্জ কেজি প্রতি ১০ টাকা করে আলাদা চার্জ যুক্ত হবে।
+            </p>
+            <p>১২ কেজির জন্য ৩০০ টাকা</p>
+            <p>২২ কেজির জন্য ৫০০ টাকা</p>
+            <p>Contact: 01303546501</p>
+            <p>Bkash, Nagad, Rocket (Personal)</p>
+          </div>
+          <br />
+          <BillingForm />
         </div>
       )}
       <div className="mt-8">
-        <Link href="/">
-          <span className="bg-blue-500 text-white px-4 py-2 rounded">
-            Continue Shopping
-          </span>
+        <Link href="/" className="bg-blue-500 text-white px-4 py-2 rounded">
+          Continue Shopping
         </Link>
       </div>
     </div>
