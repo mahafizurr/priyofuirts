@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col md:flex-row justify-between items-center p-2">
+      <div className="flex flex-col  md:flex-row justify-between items-center px-8 py-2 ">
         <div className="flex items-center mb-2 md:mb-0">
           <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
           <a href="tel:+8801303546501" className="hover:underline">
@@ -66,7 +66,7 @@ const Header = () => {
         </div>
       </div>
 
-      <header className="bg-green-950 text-white p-4 sticky top-0 z-75">
+      <header className="bg-green-950 text-white w-full px-8 py-4 sticky top-0 z-75">
         <nav className="flex justify-between items-center flex-wrap">
           <div className="text-2xl font-bold">
             <Link href="/">Priyo Fruits</Link>
@@ -137,7 +137,7 @@ const Header = () => {
         </nav>
       </header>
       {router.pathname === "/" && (
-        <div className="container mx-auto mt-4">
+        <div className="container mx-auto px-8 py-4">
           <img
             src="/images/banner.jpg"
             alt="Banner"
