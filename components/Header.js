@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="w-full">
       <div className="flex flex-col md:flex-row justify-between items-center p-2">
         <div className="flex items-center mb-2 md:mb-0">
           <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
