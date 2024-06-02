@@ -1,15 +1,14 @@
 // pages/_app.js
-import { CartProvider } from "../contexts/CartContext";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import "../styles/globals.css";
+import { CartProvider } from "../contexts/CartContext";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
     <CartProvider>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </CartProvider>
   );
 }

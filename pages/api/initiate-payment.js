@@ -1,5 +1,5 @@
 // pages/api/initiate-payment.js
-/* export default async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "POST") {
     // Mock payment request
     const { amount, currency } = req.body;
@@ -14,4 +14,3 @@
     res.status(405).json({ message: "Method not allowed" });
   }
 }
- */
