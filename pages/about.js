@@ -9,7 +9,7 @@ const About = () => {
         className="w-full rounded shadow-md"
       />
 
-      <div className="mt-4 md:mt-8">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
         <p className="text-justify text-sm md:text-base leading-relaxed md:leading-loose">
           Priyo Fruits is a leading business that provides natural, healthy and
           chemical free food to people. Priyo Fruits is a reliable company, all
