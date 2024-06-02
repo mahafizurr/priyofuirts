@@ -1,4 +1,3 @@
-// components/Footer.js
 import Link from "next/link";
 
 const Footer = () => {
@@ -35,10 +34,11 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+
         <div className="w-full lg:w-1/3">
           <h3 className="text-lg font-semibold">Address</h3>
           <p className="mt-2">
-            Sabek Lavanga, Ranihati, Shiganj, Chapainawabganj-6300. <br />
+            Sabek Lavanga, Ranihati, Shiganj,Chapainawabganj-6300. <br />
             Phone: 01918-167161 <br />
             WhatsApp: 01918-167161 <br />
             chapaiambient@gmail.com
@@ -46,9 +46,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-4 text-center">
-        <p>
-          &copy; {new Date().getFullYear()} Chapai Nawabganj Bar Association
-        </p>
+        <p>&copy; {new Date().getFullYear()} Priyo Fruits</p>
       </div>
     </div>
   );
