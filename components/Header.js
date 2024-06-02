@@ -137,7 +137,7 @@ const Header = () => {
         </nav>
       </header>
       {router.pathname === "/" && (
-        <div className="container mx-auto mt-4">
+        <div className="w-full px-4 py-4 md:py-8">
           <img
             src="/images/banner.jpg"
             alt="Banner"
