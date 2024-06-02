@@ -10,17 +10,19 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useCart } from "../contexts/CartContext";
 
 const Header = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cart } = useCart();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <div className="w-full">
+    <div className="container mx-auto px-4">
       <div className="flex flex-col md:flex-row justify-between items-center p-2">
         <div className="flex items-center mb-2 md:mb-0">
           <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
@@ -122,16 +124,20 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="mt-2 md:mt-0">
-            <Link href="/cart" className="hover:underline">
-              <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
+          <div className="mt-2 md:mt-0 flex items-center space-x-4">
+            <Link href="/checkout" className="hover:underline">
+              <div className="relative">
+                <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-sm">
+                  {cart.length}
+                </span>
+              </div>
             </Link>
           </div>
         </nav>
       </header>
-      {/* Banner */}
       {router.pathname === "/" && (
-        <div className="w-full mt-4">
+        <div className="container mx-auto mt-4">
           <img
             src="/images/banner.jpg"
             alt="Banner"
