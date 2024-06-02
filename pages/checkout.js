@@ -31,24 +31,7 @@ const Checkout = () => {
   };
 
   const handleCheckout = async () => {
-    const response = await fetch("/api/initiate-payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        amount: totalAmount,
-        currency: "BDT",
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      window.location.href = data.paymentUrl; // Redirect to the payment URL
-    } else {
-      alert("Failed to initiate payment");
-    }
+    console.log("chck out");
   };
 
   return (
