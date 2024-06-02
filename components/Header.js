@@ -66,7 +66,7 @@ const Header = () => {
         </div>
       </div>
 
-      <header className="bg-green-950 text-white p-4 sticky top-0 z-50">
+      <header className="bg-green-950 text-white p-4 sticky top-0 z-75 w-full">
         <nav className="flex justify-between items-center flex-wrap">
           <div className="text-2xl font-bold">
             <Link href="/">Priyo Fruits</Link>

@@ -1,18 +1,15 @@
-import "../styles/globals.css";
+// pages/_app.js
+import { CartProvider } from "../contexts/CartContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { CartProvider } from "../contexts/CartContext";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <CartProvider>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
-      </div>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
     </CartProvider>
   );
 }
