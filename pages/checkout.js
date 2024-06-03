@@ -4,10 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import BillingForm from "@/components/BillingForm";
 
 const Checkout = () => {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart, updateQuantity, updateCart } = useCart();
   const router = useRouter();
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -24,21 +23,18 @@ const Checkout = () => {
 
   const handleQuantityChange = (productId, quantity) => {
     if (quantity < 1) {
-      removeFromCart(productId);
+      updateCart(cart.filter((product) => product.id !== productId));
     } else {
       updateQuantity(productId, quantity);
     }
   };
 
   const handleWeightChange = (productId, weight) => {
-    // Update the selected weight for the product
-    // This assumes that you have a way to update the cart context with the new weight selection
     const updatedCart = cart.map((product) =>
       product.id === productId
         ? { ...product, selectedWeight: weight }
         : product
     );
-    // Assuming you have a method in your context to update the cart
     updateCart(updatedCart);
   };
 
@@ -57,13 +53,12 @@ const Checkout = () => {
               <Image
                 src={product.image}
                 alt={product.name}
-                width={100}
-                height={100}
-                className="w-24 h-24 rounded"
+                width={150}
+                height={150}
+                className="rounded"
               />
               <div className="flex-1 mt-4 md:mt-0 md:ml-4">
                 <h2 className="text-xl font-semibold">{product.name}</h2>
-                <p className="text-gray-700">{product.description}</p>
                 <p className="text-green-600 text-2xl font-bold">
                   {product.priceRange}
                 </p>
@@ -71,7 +66,7 @@ const Checkout = () => {
                   {product.weights.map((weight, index) => (
                     <button
                       key={index}
-                      className={`px-4 py-2 rounded ${
+                      className={`px-4 py-2 rounded m-1 ${
                         product.selectedWeight === weight
                           ? "bg-black text-white"
                           : "bg-gray-300 text-black"
@@ -81,14 +76,7 @@ const Checkout = () => {
                       {weight}
                     </button>
                   ))}
-                  <button
-                    onClick={() => handleWeightChange(product.id, null)}
-                    className="px-4 py-2 rounded bg-gray-300 ml-2"
-                  >
-                    Clear
-                  </button>
                 </div>
-                <p className="text-gray-900 font-bold mt-4">{product.price}৳</p>
                 <div className="flex items-center mt-2">
                   <button
                     onClick={() =>
@@ -108,20 +96,6 @@ const Checkout = () => {
                     +
                   </button>
                 </div>
-              </div>
-              <div className="flex flex-col md:mt-0 md:ml-4 mt-4 space-y-2">
-                <button
-                  onClick={() => router.push("/checkout")}
-                  className="bg-green-500 text-white px-4 py-2 rounded"
-                >
-                  Buy Now
-                </button>
-                <button
-                  onClick={() => removeFromCart(product.id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded"
-                >
-                  Remove
-                </button>
               </div>
             </div>
           ))}
@@ -148,9 +122,16 @@ const Checkout = () => {
             <p>Bkash, Nagad, Rocket (Personal)</p>
           </div>
           <br />
-          <BillingForm />
         </div>
       )}
+      <div className="flex flex-col md:mt-0 md:ml-4 mt-4 space-y-2">
+        <button
+          onClick={() => router.push("/checkout")}
+          className="bg-green-500 text-white px-4 py-2 rounded"
+        >
+          Buy Now
+        </button>
+      </div>
       <div className="mt-8">
         <Link href="/" className="bg-blue-500 text-white px-4 py-2 rounded">
           Continue Shopping
