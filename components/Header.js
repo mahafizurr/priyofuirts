@@ -1,4 +1,3 @@
-// components/Header.js
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneAlt, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -23,7 +22,7 @@ const Header = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col  md:flex-row justify-between items-center px-8 py-2 ">
+      <div className="flex flex-col md:flex-row justify-between items-center px-8 py-2">
         <div className="flex items-center mb-2 md:mb-0">
           <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
           <a href="tel:+8801303546501" className="hover:underline">
@@ -67,14 +66,11 @@ const Header = () => {
       </div>
 
       <header className="bg-green-950 text-white w-full px-8 py-4 sticky top-0 z-75">
-        <nav className="flex justify-between items-center flex-wrap">
-          <div className="text-2xl font-bold">
-            <Link href="/">Priyo Fruits</Link>
-          </div>
-          <div className="block md:hidden">
+        <nav className="flex justify-between items-center flex-wrap md:flex-nowrap">
+          <div className="flex justify-between items-center w-full md:w-auto">
             <button
               id="menu-toggle"
-              className="text-white focus:outline-none"
+              className="text-white focus:outline-none block md:hidden"
               onClick={toggleMenu}
             >
               <svg
@@ -89,7 +85,22 @@ const Header = () => {
                 <path d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
             </button>
+
+            <div className="text-2xl font-bold flex-grow text-center md:text-left">
+              <Link href="/">Priyo Fruits</Link>
+            </div>
+            <div className="md:hidden">
+              <Link href="/checkout" className="hover:underline">
+                <div className="relative">
+                  <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-sm">
+                    {cart.length}
+                  </span>
+                </div>
+              </Link>
+            </div>
           </div>
+
           <ul
             id="menu"
             className={`w-full md:flex md:items-center md:w-auto md:space-x-8 text-lg ${
@@ -105,6 +116,7 @@ const Header = () => {
                 Home
               </Link>
             </li>
+
             <li className="my-2 md:my-0">
               <Link
                 href="/about"
@@ -124,7 +136,8 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="mt-2 md:mt-0 flex items-center space-x-4">
+
+          <div className="hidden md:block mt-2 md:mt-0">
             <Link href="/checkout" className="hover:underline">
               <div className="relative">
                 <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
@@ -137,11 +150,11 @@ const Header = () => {
         </nav>
       </header>
       {router.pathname === "/" && (
-        <div className="container mx-auto px-8 py-4">
+        <div className="w-full mt-2">
           <img
             src="/images/banner.jpg"
             alt="Banner"
-            className="w-full rounded shadow-md"
+            className="w-full shadow-md"
           />
         </div>
       )}

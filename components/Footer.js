@@ -23,6 +23,7 @@ const Footer = () => {
                 Home
               </Link>
             </li>
+
             <li>
               <Link href="/about" className="hover:underline block">
                 About
@@ -39,7 +40,7 @@ const Footer = () => {
         <div className="w-full lg:w-1/3">
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <p className="mt-2">
-            Sabek Lavanga, Ranihati, Shiganj, Chapainawabganj-6300.
+            Sabek Lavanga, Ranihati, Shibganj, Chapainawabganj-6300.
             <br />
             Phone:{" "}
             <a href="tel:+8801303546501" className="hover:underline">
