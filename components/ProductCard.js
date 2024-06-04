@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="border p-4 rounded-lg flex flex-col items-center">
+    <div className="border p-4 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105">
       <Image
         src={product.image}
         alt={product.name}
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
         {product.name}
       </h2>
 
-      <p className="text-gray-900 font-bold">৳{product.priceRange}</p>
+      <p className="text-gray-900 font-bold">{product.priceRange}</p>
     </div>
   );
 };
