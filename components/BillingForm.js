@@ -1,9 +1,11 @@
 // components/BillingForm.js
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const BillingForm = () => {
   const [district, setDistrict] = useState("");
   const [transactionNumber, setTransactionNumber] = useState("");
+  const router = useRouter();
   const districts = [
     "Bagerhat",
     "Bandarban",
@@ -70,10 +72,15 @@ const BillingForm = () => {
     "Thakurgaon",
   ];
 
+  const handleThanks = (e) => {
+    e.preventDefault();
+    router.push("/thank-you"); // Redirect to thank-you page after form submission
+  };
+
   return (
     <div className="max-w-lg mx-auto p-4 bg-white shadow-md rounded">
       <h2 className="text-2xl font-semibold mb-4">BILLING DETAILS</h2>
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={handleThanks}>
         <div className="flex flex-col">
           <label className="font-semibold mb-1">
             পুরো নাম <span className="text-red-500">*</span>
@@ -167,7 +174,7 @@ const BillingForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-green-950 text-white p-2 rounded"
+          className="w-full bg-green-500 text-white p-2 rounded"
         >
           Proceed to Payment
         </button>
