@@ -27,7 +27,7 @@ const products = [
     id: 3,
     name: "গোপালভোগ আম",
     description: "গোপালভোগ আম এর অনন্য স্বাদ ও গন্ধের জন্য বিখ্যাত।",
-    priceRange: "৳1,440.00 – ৳2,640.00",
+    priceRange: "৳1,440.00 – ৳2,640.00 (Not Available)",
     price: 2640,
     weights: ["12KG", "22KG"],
     selectedWeight: "22KG",
