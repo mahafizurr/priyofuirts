@@ -37,6 +37,23 @@ const Footer = () => {
           </ul>
         </div>
 
+        <div className="w-full lg:w-1/3 pl-4">
+          <h3 className="text-lg font-semibold mb-4">Important Links</h3>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/deliverypolicy" className="hover:underline block">
+                Delivery Policy
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/returnpolicy" className="hover:underline block">
+                Return and Refund Policy
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         <div className="w-full lg:w-1/3">
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <p className="mt-2">

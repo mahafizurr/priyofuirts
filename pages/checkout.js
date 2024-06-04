@@ -6,9 +6,13 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 const Checkout = () => {
-  const { cart, updateQuantity, updateCart } = useCart();
+  const { cart, updateQuantity, updateCart, addToCart } = useCart();
   const router = useRouter();
   const [totalAmount, setTotalAmount] = useState(0);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   useEffect(() => {
     const calculateTotalAmount = () => {
@@ -130,6 +134,12 @@ const Checkout = () => {
           className="bg-green-500 text-white px-4 py-2 rounded"
         >
           Buy Now
+        </button>
+        <button
+          onClick={handleAddToCart}
+          className="bg-green-500 text-white px-4 py-2 rounded "
+        >
+          Add to Cart
         </button>
       </div>
       <div className="mt-8">
