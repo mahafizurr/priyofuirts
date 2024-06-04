@@ -121,8 +121,8 @@ const Checkout = () => {
           <p>
             হোম ডেলিভারি চার্জ কেজি প্রতি ১০ টাকা করে আলাদা চার্জ যুক্ত হবে।
           </p>
-          <p>১২ কেজির জন্য ৩০০ টাকা</p>
-          <p>২২ কেজির জন্য ৫০০ টাকা</p>
+          <p>১২ কেজির জন্য ৪০০ টাকা</p>
+          <p>২২ কেজির জন্য ৬০০ টাকা</p>
           <p className=" font-bold">Contact: 01303546501</p>
           <p className=" text-blue-700">Bkash, Nagad, Rocket (Personal)</p>
         </div>
