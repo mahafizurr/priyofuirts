@@ -6,7 +6,9 @@ const BillingDetails = () => {
 
   useEffect(() => {
     const fetchBillingDetails = async () => {
-      const response = await fetch("/api/getBillingDetails");
+      const response = await fetch(
+        "https://www.priyofruits.com/api/getBillingDetails"
+      );
       const data = await response.json();
       setBillingDetails(data);
     };
