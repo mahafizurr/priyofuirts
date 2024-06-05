@@ -1,9 +1,11 @@
-// components/BillingForm.js
 import { useState } from "react";
 import { useRouter } from "next/router";
 
 const BillingForm = () => {
+  const [fullName, setFullName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
   const [district, setDistrict] = useState("");
+  const [fullAddress, setFullAddress] = useState("");
   const [transactionNumber, setTransactionNumber] = useState("");
   const router = useRouter();
   const districts = [
@@ -72,21 +74,49 @@ const BillingForm = () => {
     "Thakurgaon",
   ];
 
-  const handleThanks = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    router.push("/thank-you"); // Redirect to thank-you page after form submission
+
+    const data = {
+      fullName,
+      mobileNumber,
+      district,
+      fullAddress,
+      transactionNumber,
+      country: "Bangladesh",
+    };
+
+    try {
+      const response = await fetch("/api/submitBillingForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        router.push("/thank-you");
+      } else {
+        console.error("Failed to submit billing form");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   return (
     <div className="max-w-lg mx-auto p-4 bg-white shadow-md rounded">
       <h2 className="text-2xl font-semibold mb-4">BILLING DETAILS</h2>
-      <form className="space-y-4" onSubmit={handleThanks}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label className="font-semibold mb-1">
             পুরো নাম <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             className="p-2 border border-gray-300 rounded"
             required
           />
@@ -97,6 +127,8 @@ const BillingForm = () => {
           </label>
           <input
             type="text"
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
             className="p-2 border border-gray-300 rounded"
             required
           />
@@ -127,6 +159,8 @@ const BillingForm = () => {
           </label>
           <input
             type="text"
+            value={fullAddress}
+            onChange={(e) => setFullAddress(e.target.value)}
             className="p-2 border border-gray-300 rounded"
             required
           />
@@ -149,28 +183,10 @@ const BillingForm = () => {
           </label>
           <input
             type="text"
-            className="p-2 border border-gray-300 rounded"
             value="Bangladesh"
             readOnly
-          />
-        </div>
-        <div className="flex items-center space-x-2">
-          <input
-            type="checkbox"
-            id="shipToDifferentAddress"
-            className="h-4 w-4"
-          />
-          <label htmlFor="shipToDifferentAddress" className="font-semibold">
-            Ship to a different address?
-          </label>
-        </div>
-        <div className="flex flex-col">
-          <label className="font-semibold mb-1">Order notes (optional)</label>
-          <textarea
             className="p-2 border border-gray-300 rounded"
-            rows="4"
-            placeholder="Notes about your order, e.g. special notes for delivery."
-          ></textarea>
+          />
         </div>
         <button
           type="submit"
