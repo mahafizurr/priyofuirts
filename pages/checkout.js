@@ -124,6 +124,25 @@ const Checkout = () => {
       </div>
 
       <div className="mt-8">
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold">Payment Instructions:</h3>
+          <p>
+            আম কাঁচা পন্য হওয়ায় বুকিং এর জন্য কিছু এডভান্স করে বাকি টাকা ক্যাশ
+            অন ডেলিভারিতে দিতে পারবেন।
+          </p>
+          <p>জেলা শহরে হোম ডেলিভারি করা হয়।</p>
+          <p>
+            হোম ডেলিভারি চার্জ কেজি প্রতি ১০ টাকা করে আলাদা চার্জ যুক্ত হবে।
+          </p>
+          <p>১২ কেজির জন্য ৪০০ টাকা</p>
+          <p>২২ কেজির জন্য ৬০০ টাকা</p>
+          <p className=" font-bold">Contact: 01303546501</p>
+          <p className=" text-blue-700">Bkash, Nagad, Rocket (Personal)</p>
+        </div>
+        <br />
+      </div>
+
+      <div className="mt-8">
         <button
           onClick={() => router.push("/")}
           className="bg-blue-500 text-white px-4 py-2 rounded"
