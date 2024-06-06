@@ -87,16 +87,13 @@ const BillingForm = () => {
     };
 
     try {
-      const response = await fetch(
-        "https://www.priyofruits.com/api/submitBillingForm",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch("/api/submitBillingForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       if (response.ok) {
         router.push("/thank-you");
