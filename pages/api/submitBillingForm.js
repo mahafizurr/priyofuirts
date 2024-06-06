@@ -1,13 +1,10 @@
 // pages/api/submitBillingForm.js
 import { PrismaClient } from "@prisma/client";
-import cors, { runMiddleware } from "../../middleware/cors";
+import withCors from "../../middleware/withCors";
 
 const prisma = new PrismaClient();
 
-export default async function handler(req, res) {
-  // Run the middleware
-  await runMiddleware(req, res, cors);
-
+const handler = async (req, res) => {
   if (req.method === "POST") {
     const {
       fullName,
@@ -39,4 +36,6 @@ export default async function handler(req, res) {
     res.setHeader("Allow", ["POST"]);
     res.status(405).json({ error: "Method not allowed" });
   }
-}
+};
+
+export default withCors(handler);
