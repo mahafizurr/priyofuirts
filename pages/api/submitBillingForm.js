@@ -1,9 +1,12 @@
+// pages/api/submitBillingForm.js
 import { PrismaClient } from "@prisma/client";
+import cors, { runMiddleware } from "../../middleware/cors";
 
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-  console.log("Request method:", req.method);
+  // Run the middleware
+  await runMiddleware(req, res, cors);
 
   if (req.method === "POST") {
     const {

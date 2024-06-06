@@ -100,9 +100,11 @@ const BillingForm = () => {
         router.push("/thank-you");
       } else {
         console.error("Failed to submit billing form", response.statusText);
+        alert("Failed to submit billing form: " + response.statusText);
       }
     } catch (error) {
       console.error("An error occurred:", error);
+      alert("An error occurred: " + error.message);
     }
   };
 
