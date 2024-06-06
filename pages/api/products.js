@@ -4,9 +4,8 @@ const products = [
   {
     id: 1,
     name: "হিমসাগর আম",
-    description: "হিমসাগর আম বাংলাদেশের অন্যতম জনপ্রিয় ও মিষ্টি আম।",
     priceRange: "৳1,440.00 – ৳2,640.00",
-    price: 2640,
+    prices: [1440, 2640],
     weights: ["12KG", "22KG"],
     selectedWeight: "22KG",
     quantity: 1,
@@ -15,9 +14,8 @@ const products = [
   {
     id: 2,
     name: "খিরসাপাত আম",
-    description: "খিরসাপাত আম বাংলাদেশের আরেকটি সুস্বাদু ও মিষ্টি আম।",
     priceRange: "৳1,440.00 – ৳2,640.00",
-    price: 2640,
+    prices: [1440, 2640],
     weights: ["12KG", "22KG"],
     selectedWeight: "22KG",
     quantity: 1,
@@ -26,24 +24,12 @@ const products = [
   {
     id: 3,
     name: "গোপালভোগ আম",
-    description: "গোপালভোগ আম এর অনন্য স্বাদ ও গন্ধের জন্য বিখ্যাত।",
     priceRange: "৳1,440.00 – ৳2,640.00 (Not Available)",
-    price: 2640,
+    prices: [1440, 2640],
     weights: ["12KG", "22KG"],
     selectedWeight: "22KG",
     quantity: 1,
     image: "/images/gopalvog.jpg",
-  },
-  {
-    id: 4,
-    name: "আচার",
-    description: "স্বাদু এবং মজাদার আচার, যেকোনো খাবারের সঙ্গে খেতে ভালো।",
-    priceRange: "৳530.00 – ৳1000.00",
-    price: 1000,
-    weights: ["0.8KG", "1.6KG"],
-    selectedWeight: "22KG",
-    quantity: 1,
-    image: "/images/Aachar.jpg",
   },
 ];
 

@@ -9,17 +9,24 @@ const Checkout = () => {
   const { addToCart } = useCart();
 
   const [quantity, setQuantity] = useState(1);
-  const [selectedWeight, setSelectedWeight] = useState(
-    query.selectedWeight || ""
-  );
+  const [selectedWeight, setSelectedWeight] = useState("");
   const [weights, setWeights] = useState([]);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    if (query.weights) {
-      setWeights(JSON.parse(query.weights));
-      setSelectedWeight(query.selectedWeight || JSON.parse(query.weights)[0]);
+    if (query.id) {
+      fetch(`/api/products?id=${query.id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          const productData = data.find(
+            (item) => item.id === parseInt(query.id)
+          );
+          setProduct(productData);
+          setWeights(productData.weights);
+          setSelectedWeight(query.selectedWeight || productData.weights[0]);
+        });
     }
-  }, [query.weights, query.selectedWeight]);
+  }, [query.id, query.selectedWeight]);
 
   const handleQuantityChange = (newQuantity) => {
     if (newQuantity < 1) return;
@@ -27,22 +34,26 @@ const Checkout = () => {
   };
 
   const handleAddToCart = () => {
-    const product = {
-      id: query.id,
-      name: query.name,
-      priceRange: query.priceRange,
-      price: query.price,
-      selectedWeight,
-      quantity,
-      image: query.image,
-    };
-    addToCart(product);
-    router.push("/cart"); // Redirect to cart page after adding to cart
+    if (product) {
+      const cartProduct = {
+        id: product.id,
+        name: product.name,
+        priceRange: product.priceRange,
+        price: product.prices[weights.indexOf(selectedWeight)],
+        selectedWeight,
+        quantity,
+        image: product.image,
+      };
+      addToCart(cartProduct);
+      router.push("/cart"); // Redirect to cart page after adding to cart
+    }
   };
 
   const handleBillingForm = () => {
-    router.push("/billingform"); // Redirect to cart page after adding to cart
+    router.push("/billingform"); // Redirect to billing form page
   };
+
+  if (!product) return <div>Loading...</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -50,17 +61,17 @@ const Checkout = () => {
       <div className="grid gap-4">
         <div className="border p-4 rounded-lg flex flex-col md:flex-row items-center justify-between">
           <Image
-            src={query.image}
-            alt={query.name}
+            src={product.image}
+            alt={product.name}
             width={300}
             height={300}
-            className="w-32 h-32 rounded"
+            className="w-80 h-80 rounded"
           />
           <div className="flex-1 mt-4 md:mt-0 md:ml-4">
-            <h2 className="text-xl font-semibold">{query.name}</h2>
-            <p className="text-gray-700">{query.description}</p>
+            <h2 className="text-xl font-semibold">{product.name}</h2>
+            <p className="text-gray-700">{product.description}</p>
             <p className="text-green-600 text-2xl font-bold">
-              {query.priceRange}
+              {product.priceRange}
             </p>
             <div className="flex items-center mt-2">
               {weights.map((weight, index) => (
@@ -78,7 +89,8 @@ const Checkout = () => {
               ))}
             </div>
             <h2 className="text-xl font-bold mb-4">
-              Total Amount: {query.price * quantity}৳
+              Total Amount:{" "}
+              {product.prices[weights.indexOf(selectedWeight)] * quantity}৳
             </h2>
             <div className="flex items-center mt-2">
               <button
@@ -109,24 +121,6 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-8">
-        <div className="mt-4">
-          <h3 className="text-lg font-semibold">Payment Instructions:</h3>
-          <p>
-            আম কাঁচা পন্য হওয়ায় বুকিং এর জন্য কিছু এডভান্স করে বাকি টাকা ক্যাশ
-            অন ডেলিভারিতে দিতে পারবেন।
-          </p>
-          <p>জেলা শহরে হোম ডেলিভারি করা হয়।</p>
-          <p>
-            হোম ডেলিভারি চার্জ কেজি প্রতি ১০ টাকা করে আলাদা চার্জ যুক্ত হবে।
-          </p>
-          <p>১২ কেজির জন্য ৪০০ টাকা</p>
-          <p>২২ কেজির জন্য ৬০০ টাকা</p>
-          <p className=" font-bold">Contact: 01303546501</p>
-          <p className=" text-blue-700">Bkash, Nagad, Rocket (Personal)</p>
-        </div>
-        <br />
       </div>
 
       <div className="mt-8">
