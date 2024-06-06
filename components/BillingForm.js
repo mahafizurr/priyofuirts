@@ -8,6 +8,7 @@ const BillingForm = () => {
   const [fullAddress, setFullAddress] = useState("");
   const [transactionNumber, setTransactionNumber] = useState("");
   const router = useRouter();
+
   const districts = [
     "Bagerhat",
     "Bandarban",
@@ -98,7 +99,7 @@ const BillingForm = () => {
       if (response.ok) {
         router.push("/thank-you");
       } else {
-        console.error("Failed to submit billing form");
+        console.error("Failed to submit billing form", response.statusText);
       }
     } catch (error) {
       console.error("An error occurred:", error);

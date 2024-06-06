@@ -1,9 +1,10 @@
-// pages/api/submitBillingForm.js
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
+  console.log("Request method:", req.method);
+
   if (req.method === "POST") {
     const {
       fullName,
@@ -28,6 +29,7 @@ export default async function handler(req, res) {
 
       res.status(200).json(billingDetail);
     } catch (error) {
+      console.error("Error saving billing details:", error);
       res.status(500).json({ error: "Failed to save billing details" });
     }
   } else {
