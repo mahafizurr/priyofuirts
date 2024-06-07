@@ -8,7 +8,6 @@ const BillingForm = () => {
   const [district, setDistrict] = useState("");
   const [fullAddress, setFullAddress] = useState("");
   const [transactionNumber, setTransactionNumber] = useState("");
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const districts = [
@@ -79,7 +78,6 @@ const BillingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
     const data = {
       fullName,
@@ -106,20 +104,7 @@ const BillingForm = () => {
     } catch (error) {
       console.error("An error occurred:", error);
       alert("An error occurred: " + error.message);
-    } finally {
-      setLoading(false);
     }
-  };
-
-  const validateMobileNumber = (number) => {
-    const regex = /^[0-9]{10,15}$/;
-    return regex.test(number);
-  };
-
-  const validateTransactionNumber = (number) => {
-    // Assuming transaction number has similar validation
-    const regex = /^[0-9a-zA-Z]{10,15}$/;
-    return regex.test(number);
   };
 
   return (
@@ -149,9 +134,6 @@ const BillingForm = () => {
             className="p-2 border border-gray-300 rounded"
             required
           />
-          {!validateMobileNumber(mobileNumber) && mobileNumber && (
-            <span className="text-red-500 text-sm">Invalid mobile number</span>
-          )}
         </div>
         <div className="flex flex-col">
           <label className="font-semibold mb-1">
@@ -196,12 +178,6 @@ const BillingForm = () => {
             className="p-2 border border-gray-300 rounded"
             required
           />
-          {!validateTransactionNumber(transactionNumber) &&
-            transactionNumber && (
-              <span className="text-red-500 text-sm">
-                Invalid transaction number
-              </span>
-            )}
         </div>
         <div className="flex flex-col">
           <label className="font-semibold mb-1">
@@ -211,15 +187,14 @@ const BillingForm = () => {
             type="text"
             value="Bangladesh"
             readOnly
-            className="p-2 border border-gray-300 rounded bg-gray-100 cursor-not-allowed"
+            className="p-2 border border-gray-300 rounded"
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-green-500 text-white p-2 rounded disabled:bg-gray-300"
-          disabled={loading}
+          className="w-full bg-green-500 text-white p-2 rounded"
         >
-          {loading ? "Submitting..." : "Proceed to Payment"}
+          Proceed to Payment
         </button>
       </form>
     </div>
