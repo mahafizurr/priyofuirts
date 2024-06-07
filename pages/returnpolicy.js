@@ -10,6 +10,7 @@ const returnpolicy = () => {
       />
 
       <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 className="text-lg font-semibold">Return Policy:</h3>
         <p className="text-justify text-sm md:text-base leading-relaxed md:leading-loose">
           আমরা সমস্ত অর্ডার কুরিয়ারের মাধ্যমে করে থাকি । <br />
           যদি কোন প্রোডাক্ট হারিয়ে যায় বা সম্পুর্ন নষ্ট হয়ে যায় তাহলে
