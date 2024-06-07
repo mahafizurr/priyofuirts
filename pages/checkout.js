@@ -127,7 +127,18 @@ const Checkout = () => {
         <div className="mt-4">
           <h3 className="text-lg font-semibold">Payment Instructions:</h3>
           <br />
-          <p className="text-gray-700">{product.description}</p>
+          <p>{product.description.p1}</p>
+          <br />
+          <p>{product.description.p2} ,</p>
+          <p>{product.description.p3}</p>
+          <br />
+          <p>{product.description.p4}</p>
+          <p>{product.description.p5}</p>
+          <br />
+          <p className=" font-bold">
+            Contact/Payment: {product.description.p6}
+          </p>
+          <p className=" text-blue-700">{product.description.p7}</p>
         </div>
       </div>
 
