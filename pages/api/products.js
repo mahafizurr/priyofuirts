@@ -120,6 +120,8 @@ const products = [
     name: "আচার",
     description: {
       p1: "Cash on delivery",
+      p6: "01303546501 ",
+      p7: "বিকাশ, নগদ, রকেট (পারসোনাল)",
     },
     priceRange: "৳530.00 – ৳1000.00",
     prices: [530, 1000],

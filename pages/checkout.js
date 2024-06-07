@@ -127,7 +127,7 @@ const Checkout = () => {
         <div className="mt-4">
           <h3 className="text-lg font-semibold">Payment Instructions:</h3>
           <br />
-          <p>{product.description.p1}</p>
+          <p className=" font-bold">{product.description.p1}</p>
           <br />
           <p>{product.description.p2} ,</p>
           <p>{product.description.p3}</p>
