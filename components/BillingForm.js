@@ -12,20 +12,13 @@ const BillingForm = () => {
   const [error, setError] = useState(null);
   const router = useRouter();
 
-  const districts = [
-    "Bagerhat",
-    "Bandarban",
-    "Barguna",
-    "Barisal",
-    "Bhola",
-    "Bogura",
-    "Brahmanbaria",
-  ];
+  const districts = ["chapai"];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+
     const formData = {
       fullName,
       mobileNumber,
