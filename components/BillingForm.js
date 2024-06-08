@@ -8,17 +8,15 @@ const BillingForm = () => {
   const [district, setDistrict] = useState("");
   const [fullAddress, setFullAddress] = useState("");
   const [transactionNumber, setTransactionNumber] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const router = useRouter();
 
-  const districts = ["chapai"];
+  const districts = [
+    // your districts array here...
+    "chapai",
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-
     const formData = {
       fullName,
       mobileNumber,
@@ -35,14 +33,9 @@ const BillingForm = () => {
       );
       if (response.status === 201) {
         router.push("/thank-you");
-      } else {
-        setError("Failed to submit form");
       }
     } catch (error) {
-      setError("There was an error submitting the form");
-      console.error(error);
-    } finally {
-      setLoading(false);
+      console.error("There was an error submitting the form", error);
     }
   };
 
@@ -129,13 +122,11 @@ const BillingForm = () => {
             className="p-2 border border-gray-300 rounded"
           />
         </div>
-        {error && <p className="text-red-500">{error}</p>}
         <button
           type="submit"
           className="w-full bg-green-500 text-white p-2 rounded"
-          disabled={loading}
         >
-          {loading ? "Submitting..." : "Proceed to Payment"}
+          Proceed to Payment
         </button>
       </form>
     </div>
