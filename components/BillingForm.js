@@ -8,6 +8,8 @@ const BillingForm = () => {
   const [district, setDistrict] = useState("");
   const [fullAddress, setFullAddress] = useState("");
   const [transactionNumber, setTransactionNumber] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const router = useRouter();
 
   const districts = [
@@ -78,8 +80,9 @@ const BillingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const data = {
+    setLoading(true);
+    setError(null);
+    const formData = {
       fullName,
       mobileNumber,
       district,
@@ -89,21 +92,20 @@ const BillingForm = () => {
     };
 
     try {
-      const response = await axios.post("/api/submitBillingForm", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.status === 200) {
+      const response = await axios.post(
+        "https://priyofood-backend.vercel.app/billingDetails",
+        formData
+      );
+      if (response.status === 201) {
         router.push("/thank-you");
       } else {
-        console.error("Failed to submit billing form", response.statusText);
-        alert("Failed to submit billing form: " + response.statusText);
+        setError("Failed to submit form");
       }
     } catch (error) {
-      console.error("An error occurred:", error);
-      alert("An error occurred: " + error.message);
+      setError("There was an error submitting the form");
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -190,11 +192,13 @@ const BillingForm = () => {
             className="p-2 border border-gray-300 rounded"
           />
         </div>
+        {error && <p className="text-red-500">{error}</p>}
         <button
           type="submit"
           className="w-full bg-green-500 text-white p-2 rounded"
+          disabled={loading}
         >
-          Proceed to Payment
+          {loading ? "Submitting..." : "Proceed to Payment"}
         </button>
       </form>
     </div>

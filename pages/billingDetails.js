@@ -10,7 +10,9 @@ const BillingDetails = () => {
   useEffect(() => {
     const fetchBillingDetails = async () => {
       try {
-        const response = await axios.get("/api/getBillingDetails");
+        const response = await axios.get(
+          "https://priyofood-backend.vercel.app/billingDetails"
+        );
         setBillingDetails(response.data);
       } catch (error) {
         console.error("Failed to fetch billing details", error);
