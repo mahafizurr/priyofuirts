@@ -46,7 +46,7 @@ const OrdersPage = ({ initialOrders }) => {
 };
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/get-orders");
+  const res = await fetch("https://www.priyofruits.com/api/get-orders");
   const data = await res.json();
 
   return {
