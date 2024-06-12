@@ -12,6 +12,7 @@ const Checkout = () => {
   const [selectedWeight, setSelectedWeight] = useState("");
   const [weights, setWeights] = useState([]);
   const [product, setProduct] = useState(null);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     if (query.id) {
@@ -45,7 +46,7 @@ const Checkout = () => {
         image: product.image,
       };
       addToCart(cartProduct);
-      router.push("/cart"); // Redirect to cart page after adding to cart
+      setAddedToCart(true); // Set the state to indicate the item has been added to the cart
     }
   };
 
@@ -113,10 +114,12 @@ const Checkout = () => {
                 Buy Now
               </button>
               <button
-                onClick={handleAddToCart}
+                onClick={
+                  addedToCart ? () => router.push("/cart") : handleAddToCart
+                }
                 className="bg-yellow-500 text-white px-4 py-2 rounded"
               >
-                Add to Cart
+                {addedToCart ? "Checkout Cart" : "Add to Cart"}
               </button>
             </div>
           </div>

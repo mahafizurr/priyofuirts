@@ -138,7 +138,7 @@ const Header = () => {
           </ul>
 
           <div className="hidden md:block mt-2 md:mt-0">
-            <Link href="/checkout" className="hover:underline">
+            <Link href="/cart" className="hover:underline">
               <div className="relative">
                 <FontAwesomeIcon icon={faShoppingCart} className="text-2xl" />
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-sm">
