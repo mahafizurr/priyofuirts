@@ -124,7 +124,7 @@ const products = [
       p7: "বিকাশ, নগদ, রকেট (পারসোনাল)",
     },
     priceRange: "৳570.00 – ৳1050.00",
-    prices: [530, 1000],
+    prices: [570, 1000],
     weights: ["1KG", "2KG"],
     selectedWeight: "2KG",
     quantity: 1,
