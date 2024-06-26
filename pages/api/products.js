@@ -37,7 +37,7 @@ const products = [
     weights: ["12KG", "22KG"],
     selectedWeight: "22KG",
     quantity: 1,
-    image: "/images/khisshapat.jpg",
+    image: "/images/amrupali.jpg",
   },
   {
     id: 3,
