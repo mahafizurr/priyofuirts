@@ -8,7 +8,7 @@ import Layout from "../components/Layout";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { initFacebookPixel, trackPageView } from "@/lib/facebookPixel";
 
-const PIXEL_ID = "486570470572003"; // Replace with your actual Pixel ID
+const PIXEL_ID = "1617813329066715"; // Replace with your actual Pixel ID
 const GTM_ID = "GTM-TBQNSKBG";
 
 function MyApp({ Component, pageProps }) {
