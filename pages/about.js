@@ -1,3 +1,4 @@
+import ProductForm from "@/components/ProductForm";
 import React from "react";
 
 const About = () => {
@@ -18,6 +19,7 @@ const About = () => {
           products
         </p>
       </div>
+      <ProductForm />
     </div>
   );
 };

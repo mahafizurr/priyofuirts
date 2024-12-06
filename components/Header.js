@@ -21,11 +21,14 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="flex flex-col md:flex-row justify-between items-center px-8 py-2">
+    <div className="w-full bg-gray-100">
+      <div className="flex flex-col md:flex-row justify-between items-center px-8 py-2 border-b border-gray-300">
         <div className="flex items-center mb-2 md:mb-0">
-          <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
-          <a href="tel:+8801303546501" className="hover:underline">
+          <FontAwesomeIcon icon={faPhoneAlt} className="mr-2 text-green-500" />
+          <a
+            href="tel:+8801303546501"
+            className="hover:underline text-gray-700"
+          >
             +8801303546501
           </a>
         </div>
@@ -34,7 +37,7 @@ const Header = () => {
             href="https://x.com/Priyofruits"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 text-gray-600"
           >
             <FontAwesomeIcon icon={faTwitter} />
           </a>
@@ -42,7 +45,7 @@ const Header = () => {
             href="https://www.facebook.com/Priyofruits"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 text-gray-600"
           >
             <FontAwesomeIcon icon={faFacebook} />
           </a>
@@ -50,7 +53,7 @@ const Header = () => {
             href="https://wa.me/message/F2NWRN5I52AUP1"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-green-500"
+            className="hover:text-green-500 text-gray-600"
           >
             <FontAwesomeIcon icon={faWhatsapp} />
           </a>
@@ -58,14 +61,14 @@ const Header = () => {
             href="https://www.instagram.com/priyofruits"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-green-500"
+            className="hover:text-pink-500 text-gray-600"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>
       </div>
 
-      <header className="bg-green-950 text-white w-full px-8 py-4 sticky top-0 z-75">
+      <header className="bg-green-950 shadow-md text-white w-full px-8 py-4 sticky top-0 z-75">
         <nav className="flex justify-between items-center flex-wrap md:flex-nowrap">
           <div className="flex justify-between items-center w-full md:w-auto">
             <button
@@ -150,12 +153,8 @@ const Header = () => {
         </nav>
       </header>
       {router.pathname === "/" && (
-        <div className="w-full mt-2">
-          <img
-            src="/images/banner.jpg"
-            alt="Banner"
-            className="w-full shadow-md"
-          />
+        <div className="w-full shadow-md">
+          <img src="/images/banner.jpg" alt="Banner" className="w-full" />
         </div>
       )}
     </div>
