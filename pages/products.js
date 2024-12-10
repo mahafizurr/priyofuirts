@@ -1,15 +1,15 @@
-// pages/index.js
-
 import CommitMent from "@/components/CommitMent";
 import ProductList from "@/components/ProductList";
 
-const Home = () => {
+import React from "react";
+
+const products = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div>
       <ProductList />
       <CommitMent />
     </div>
   );
 };
 
-export default Home;
+export default products;

@@ -9,33 +9,33 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const Contact = () => {
   return (
-    <div className="w-full px-4 py-4 md:py-8">
-      <img
-        src="/images/heading-banner.jpg"
-        alt="Banner"
-        className="w-full rounded shadow-md mb-4"
-      />
-      <h1 className="text-3xl font-bold mb-4 text-center">Contact Us</h1>
-      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <div className="mb-4 flex items-start">
+    <div className="w-full px-6 py-8 bg-gradient-to-r from-gray-100 to-gray-200">
+      <h1 className="text-4xl font-extrabold mb-6 text-center text-gray-800">
+        Contact Us
+      </h1>
+      <div className="max-w-3xl mx-auto grid gap-6">
+        {/* Address */}
+        <div className="flex items-start bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <FontAwesomeIcon
             icon={faMapMarkerAlt}
-            className="text-gray-700 mr-4 text-xl"
+            className="text-green-600 mr-6 text-2xl"
           />
           <div>
-            <span className="font-semibold block">Address:</span>
-            <p className="text-gray-700">
+            <h2 className="font-bold text-lg text-gray-800">Address</h2>
+            <p className="text-gray-600">
               Sabek Lavanga, Ranihati, Shibganj, Chapainawabganj-6300
             </p>
           </div>
         </div>
-        <div className="mb-4 flex items-start">
+
+        {/* Phone */}
+        <div className="flex items-start bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <FontAwesomeIcon
             icon={faPhoneAlt}
-            className="text-gray-700 mr-4 text-xl"
+            className="text-blue-500 mr-6 text-2xl"
           />
           <div>
-            <span className="font-semibold block">Phone:</span>
+            <h2 className="font-bold text-lg text-gray-800">Phone</h2>
             <a
               href="tel:+8801303546501"
               className="text-blue-500 hover:underline"
@@ -44,13 +44,15 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        <div className="mb-4 flex items-start">
+
+        {/* WhatsApp */}
+        <div className="flex items-start bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <FontAwesomeIcon
             icon={faWhatsapp}
-            className="text-gray-700 mr-4 text-xl"
+            className="text-green-500 mr-6 text-2xl"
           />
           <div>
-            <span className="font-semibold block">WhatsApp:</span>
+            <h2 className="font-bold text-lg text-gray-800">WhatsApp</h2>
             <a
               href="https://wa.me/message/F2NWRN5I52AUP1"
               className="text-blue-500 hover:underline"
@@ -59,13 +61,15 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        <div className="mb-4 flex items-start">
+
+        {/* Email */}
+        <div className="flex items-start bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <FontAwesomeIcon
             icon={faEnvelope}
-            className="text-gray-700 mr-4 text-xl"
+            className="text-red-500 mr-6 text-2xl"
           />
           <div>
-            <span className="font-semibold block">Email:</span>
+            <h2 className="font-bold text-lg text-gray-800">Email</h2>
             <a
               href="mailto:priyofruits@gmail.com"
               className="text-blue-500 hover:underline"
